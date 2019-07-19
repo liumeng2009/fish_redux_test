@@ -13,5 +13,8 @@ class HelloState implements GlobalBaseState, Cloneable<HelloState> {
     return HelloState()
       ..themeColor = themeColor;
   }
+}
 
+HelloState initState(Map<String, dynamic> args) {
+  return HelloState();
 }
