@@ -3,18 +3,48 @@ import 'dart:ui';
 import 'package:fish_redux/fish_redux.dart';
 
 import '../global_store/state.dart';
+import 'todo_Component/state.dart';
+import 'report_component/state.dart';
 
-class HelloState implements GlobalBaseState, Cloneable<HelloState> {
+class PageState implements GlobalBaseState, Cloneable<PageState> {
+  List<ToDoState> toDos;
+
   @override
   Color themeColor;
 
   @override
-  HelloState clone() {
-    return HelloState()
-      ..themeColor = themeColor;
+  PageState clone() {
+    return PageState()
+      ..themeColor = themeColor
+      ..toDos = toDos;
   }
 }
 
-HelloState initState(Map<String, dynamic> args) {
-  return HelloState();
+PageState initState(Map<String, dynamic> args) {
+  return PageState();
+}
+
+class ReportConnector extends Reselect2<PageState, ReportState, int, int> {
+  @override
+  ReportState computed(int sub0, int sub1) {
+    return ReportState()
+      ..done = sub0
+      ..total = sub1;
+  }
+
+  @override
+  int getSub0(PageState state) {
+    return state.toDos.where((ToDoState tds) => tds.isDone).toList().length;
+  }
+
+  @override
+  int getSub1(PageState state) {
+    return state.toDos.length;
+  }
+
+  @override
+  void set(PageState state, ReportState subState) {
+    throw Exception('Unexpected to set PageState from ReportState');
+  }
+
 }
