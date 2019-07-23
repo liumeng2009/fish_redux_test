@@ -4,7 +4,7 @@ import 'state.dart';
 import 'view.dart';
 import 'effect.dart';
 
-class HelloPage extends Page<HelloState, Map<String, dynamic>> {
+class HelloPage extends Page<PageState, Map<String, dynamic>> {
   HelloPage()
     : super(
       initState: initState,

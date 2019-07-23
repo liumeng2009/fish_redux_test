@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:fish_redux/fish_redux.dart';
 
 import '../global_store/state.dart';
-import 'todo_Component/state.dart';
-import 'report_component/state.dart';
+import 'todo_component/component.dart';
+import 'report_component/component.dart';
 
 class PageState implements GlobalBaseState, Cloneable<PageState> {
   List<ToDoState> toDos;

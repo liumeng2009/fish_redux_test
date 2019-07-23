@@ -4,15 +4,28 @@ import 'package:flutter/material.dart';
 import 'state.dart';
 import 'action.dart';
 
+import 'list_adapter/adapter.dart';
+
 Widget buildView(
-    HelloState state, Dispatch dispatch, ViewService viewService) {
+    PageState state, Dispatch dispatch, ViewService viewService) {
+  final ListAdapter adapter = viewService.buildAdapter();
   return Scaffold(
     appBar: AppBar(
       backgroundColor: state.themeColor,
-      title: const Text('hello'),
+      title: const Text('ToDoList'),
     ),
-    body: Center(
-      child: const Text('hello'),
+    body: Container(
+      child: Column(
+        children: <Widget>[
+          viewService.buildComponent('report'),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: adapter.itemBuilder,
+              itemCount: adapter.itemCount,
+            ),
+          ),
+        ],
+      ),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {

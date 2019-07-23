@@ -5,6 +5,8 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
+export 'state.dart';
+
 class ToDoComponent extends Component<ToDoState> {
   ToDoComponent()
     : super(
