@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'state.dart';
 import 'action.dart';
 
-import 'list_adapter/adapter.dart';
-
 Widget buildView(
     PageState state, Dispatch dispatch, ViewService viewService) {
   final ListAdapter adapter = viewService.buildAdapter();
@@ -28,10 +26,9 @@ Widget buildView(
       ),
     ),
     floatingActionButton: FloatingActionButton(
-      onPressed: () {
-        dispatch(HelloActionCreator.onChangeTheme());
-      },
-      child: Icon(Icons.cached),
+      onPressed: () => dispatch(HelloActionCreator.onAddAction()),
+      tooltip: 'Add',
+      child: const Icon(Icons.add),
     ),
   );
 }
