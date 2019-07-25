@@ -5,8 +5,8 @@ import 'view.dart';
 
 export 'state.dart';
 
-class ResportComponent extends Component<ReportState> {
-  ResportComponent()
+class ReportComponent extends Component<ReportState> {
+  ReportComponent()
     : super(
         view: buildView,
     );

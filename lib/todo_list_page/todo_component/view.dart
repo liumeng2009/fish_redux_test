@@ -73,6 +73,9 @@ Widget buildView(
           ),
         ],
       ),
+      onLongPress: () {
+        dispatch(ToDoActionCreator.onRemoveAction(state.uniqueId));
+      },
     ),
   );
 }

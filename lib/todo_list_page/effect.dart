@@ -10,7 +10,7 @@ import 'todo_component/component.dart';
 Effect<PageState> buildEffect() {
   return combineEffects(<Object, Effect<PageState>>{
     Lifecycle.initState: _init,
-    HelloAction.onAdd: _onAdd,
+    PageAction.onAdd: _onAdd,
   });
 }
 
